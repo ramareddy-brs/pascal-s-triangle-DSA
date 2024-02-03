@@ -164,6 +164,36 @@ header p {
     color: #055BA6;
 
 }
+label {
+    margin-right: 10px;
+}
+
+#numRows {
+    width: 50px;
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.row {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Sticky footer styles
   -------------------------------------------------- */

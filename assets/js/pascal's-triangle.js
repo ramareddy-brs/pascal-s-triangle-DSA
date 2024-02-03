@@ -1,25 +1,42 @@
-function generatePascalsTriangle(numRows) {
-  if (numRows <= 0) {
-      return [];
-  }
+function generateTriangle() {
+    var numRowsInput = document.getElementById("numRows");
+    var numRows = parseInt(numRowsInput.value);
 
-  const triangle = [[1]];
+    if (isNaN(numRows) || numRows < 1 || numRows > 30) {
+        alert("Please enter a valid number of rows (1-30).");
+        return;
+    }
 
-  for (let i = 1; i < numRows; i++) {
-      const row = [1];
-
-      for (let j = 1; j < i; j++) {
-          row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
-      }
-
-      row.push(1);
-      triangle.push(row);
-  }
-
-  return triangle;
+    var triangle = generatePascalsTriangle(numRows);
+    displayTriangle(triangle);
 }
 
-// Example usage:
-const numRows = 5;
-const result = generatePascalsTriangle(numRows);
-console.log(result);
+function generatePascalsTriangle(numRows) {
+    var triangle = [];
+
+    for (var i = 0; i < numRows; i++) {
+        var row = [];
+        for (var j = 0; j <= i; j++) {
+            if (j === 0 || j === i) {
+                row.push(1);
+            } else {
+                row.push(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+            }
+        }
+        triangle.push(row);
+    }
+
+    return triangle;
+}
+
+function displayTriangle(triangle) {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "";
+
+    for (var i = 0; i < triangle.length; i++) {
+        var rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
+        rowDiv.textContent = triangle[i].join(' ');
+        outputDiv.appendChild(rowDiv);
+    }
+}

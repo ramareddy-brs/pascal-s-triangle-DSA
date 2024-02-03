@@ -26,6 +26,12 @@
       <p class="text-start">
         This code defines a function generatePascalsTriangle that takes the number of rows (numRows) as input and returns Pascal's triangle as a 2D array. The function uses nested loops to calculate each element based on the rule that each number is the sum of the two numbers 
       </p>
+
+      <label for="numRows">Enter the number of rows:</label>
+      <input type="number" id="numRows" min="1" max="30">
+      <button onclick="generateTriangle()">Generate Triangle</button>
+
+      <div id="output"></div>
     </main>
 
     <footer class="footer footer-dark">
